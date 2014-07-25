@@ -18,6 +18,10 @@
     "medium-editor": "~1.8.14",
     "Medium.js": "git@github.com:jakiestfu/Medium.js.git",
     "undo": "https://github.com/jzaefferer/undo/archive/master.zip",
-    "rangy-1.3alpha.804": "https://rangy.googlecode.com/files/rangy-1.3alpha.804.zip"
+    "rangy-1.3alpha.804": "https://rangy.googlecode.com/files/rangy-1.3alpha.804.zip",
+    "director": "~1.2.2",
+    "finchjs": "~0.5.14",
+    "aviator": "~0.4.2",
+    "react-router-component": "~0.18.2"
   }
 }

@@ -4,6 +4,7 @@
 #= require_tree ./components/post_editor/mixins
 #= require_tree ./components
 #= require_tree ./controllers
+#= require_tree ./routers
 
 window.ReactApp =
   

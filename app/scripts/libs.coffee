@@ -24,6 +24,8 @@ require 'angular-sanitize'
 require 'ng-rails-csrf/index'
 
 require 'jquery-waypoints'
+
+window.ReactRouter = require 'react-router-component'
 #require 'rangy'
 
 #require "undo/undo.js"

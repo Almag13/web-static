@@ -123,6 +123,7 @@ require './react/components/tasty_notify'
 require './react/controllers/tasty_notify'
 require './react/controllers/shellbox'
 require './react/controllers/popup'
+require './react/routers/popups'
 require './react/application'
 
 require './plugins/jquery.collage'
