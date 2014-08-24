@@ -1,0 +1,245 @@
+// TODO: Переделать вёрстку на классы .design
+
+.settings-design {
+  position: relative;
+  transition: background-color .3s ease;
+  border-radius: 0 0 @design-border-radius @design-border-radius;
+  overflow: hidden;
+
+  .form-range-value {
+    margin-top: -0.6em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    color: @yellow;
+  }
+
+  .form-range--opacity {
+    margin-top: -2px;
+  }
+
+  &.state--drag-hover {
+    background: @design-drag-hover-bg-base;
+    background-color: @design-drag-hover-bg;
+
+    .settings-design__drop {
+      display: block;
+      z-index: 2;
+      opacity: 1;
+    }
+
+    .settings-design__controls {
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+
+  &.state--disabled {
+    .settings-design__cover-pixel {
+      &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: @black;
+        z-index: 10;
+        opacity: .6;
+      }
+    }
+
+    .form-upload {
+      color: inherit;
+    }
+
+    .form-upload__text {
+      border: none;
+    }
+
+    .form-upload__input {
+      cursor: default;
+    }
+  }
+
+  /** Absolute **/
+  .absolute--left,
+  .absolute--right {
+    position: absolute;
+    top: 50%;
+  }
+
+  .absolute--left {
+    left: 0;
+  }
+
+  .absolute--right {
+    right: 0;
+  }
+
+  .form-radiogroup--dotted-list.absolute--left,
+  .form-radiogroup--dotted-list.absolute--right {
+    margin-top: -.6em;
+  }
+
+  .form-radiogroup--radiobuttons.absolute--left,
+  .form-radiogroup--radiobuttons.absolute--right {
+    margin-top: -13px;
+  }
+
+  .form-radiogroup--type-font.absolute--left,
+  .form-radiogroup--type-font.absolute--right {
+    margin-top: -.6em;
+  }
+
+  /** Animation **/
+  .animate--down,
+  .animate--up,
+  .animate--right {
+    transition: all .15s ease;
+  }
+
+  .animate--down {
+    top: 50%;
+    opacity: 1;
+  }
+
+  .animate--up {
+    opacity: 0;
+    .transform(translate(0, -20px));
+  }
+
+  .animate--right {
+    right: 0;
+    opacity: 1;
+    .transform(translate(0, 0));
+  }
+}
+
+.settings-design__drop {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.settings-design__drop-text {
+  margin-top: -1.5em;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  left: 15px;
+}
+
+.settings-design__controls {
+  position: relative;
+  transition: opacity .4s ease;
+}
+
+.settings-design__control {
+  padding: 15px;
+  border-top: 1px solid rgba(red(@white), green(@white), blue(@white), .08);
+  cursor: default;
+  overflow: hidden;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:hover {
+    .animate--down {
+      opacity: 0;
+      .transform(translate(0, 20px));
+    }
+
+    .animate--up {
+      opacity: 1;
+      .transform(translate(0, 0));
+    }
+
+    .animate--right {
+      opacity: 0;
+      .transform(translate(20px, 0));
+    }
+  }
+}
+
+.settings-design__control-inner {
+  height: 40px;
+  position: relative;
+}
+
+.settings-design__valign {
+  width: 1px;
+  height: 40px;
+  margin-left: -5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.settings-design__text {
+  margin-right: 14px;
+  display: inline-block;
+  vertical-align: middle;
+
+  &.absolute--left,
+  &.absolute--right {
+    margin-top: -.6em;
+  }
+}
+
+.settings-design__state {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: @yellow;
+
+  .settings-design__control--font-type & {
+    margin-top: -.6em;
+    font-size: 26px;
+    line-height: 1;
+  }
+}
+
+.settings-design__state-i {
+  display: inline-block;
+}
+
+.settings-design__state--radiobutton {
+  margin-top: -13px;
+  padding: 4px;
+  border: 2px solid @yellow;
+  border-radius: 50%;
+  .font-null();
+
+  .settings-design__state-i {
+    width: 4px;
+    height: 4px;
+    border: 6px solid;
+    vertical-align: top;
+    border-radius: 50%;
+  }
+}
+
+.settings-design__cover-pixel {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  background-color: rgba(red(@white), green(@white), blue(@white), .05);
+  background-position: 50% 50%;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 50%;
+  background-size: cover;
+
+  &.absolute--left,
+  &.absolute--right {
+    margin-top: -20px;
+  }
+}

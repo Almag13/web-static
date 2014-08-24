@@ -1,0 +1,37 @@
+.tag__item {
+  color: @white;
+
+  &:first-child {
+    .tag__link {
+      border-top: none;
+    }
+  }
+}
+
+.tag {
+  .tag__link {
+    padding: @tag-padding-vertical @tag-padding-horizontal;
+    display: block;
+    border-top: 1px solid rgba(red(@white), green(@white), blue(@white), .08);
+    color: @white;
+
+    &:hover {
+      background-color: @tag-hover-bg;
+    }
+  }
+}
+
+.tag__text {
+  position: relative;
+  display: block;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tag__count {
+  width: 44px;
+  float: right;
+  text-align: right;
+}

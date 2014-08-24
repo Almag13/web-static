@@ -1,0 +1,61 @@
+.persons {
+  padding: 20px 0;
+}
+
+.person {
+  padding: 8px 18px;
+  cursor: default;
+  transition: background .3s linear;
+
+  &:hover {
+    background-color: @person-hover-bg;
+  }
+
+  button {
+    margin-left: 5px;
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+}
+
+.person__in {
+  width: 100%;
+  display: table;
+}
+
+.person__avatar {
+  padding-right: 10px;
+  display: table-cell;
+  vertical-align: middle;
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.person__desc {
+  width: 100%;
+  padding-right: 20px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.person__actions {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.person__name {
+  max-width: 120px;
+  font-size: 16px;
+  color: @white;
+  .text-overflow();
+}
+
+.person__count {
+  font-size: 12px;
+  color: @person-gray-color;
+}

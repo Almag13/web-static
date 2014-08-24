@@ -1,0 +1,274 @@
+// Block Comments
+.comments {
+  width: 535px;
+  margin-top: -11px;
+  margin-bottom: 40px;
+  padding-left: 85px;
+  font-size: @comments-font-size;
+  line-height: @comments-line-height;
+  font-family: @font-family-base;
+
+  &.state--hidden {
+    display: none;
+  }
+}
+
+.comments__list {
+  margin-bottom: 10px;
+
+  .comment-form {
+    border-top: 0;
+  }
+}
+
+.comments__more {
+  padding-bottom: 7px;
+  font-size: @comment-meta-font-size;
+  line-height: @comment-meta-line-height;
+}
+
+.comments__more-link {
+  opacity: .4;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+// Block Comment
+.comment {
+  margin-bottom: 6px;
+  padding: 6px;
+  //padding-right: 180px;
+  //padding-left: 45px;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: border .3s ease;
+
+  &:hover {
+    .comment__meta {
+      & > * {
+        opacity: .4;
+      }
+
+      & > .comment__actions {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.state--highlighted {
+    background-color: @comment-highlighted-background-color;
+    background: @comment-highlighted-background-color;
+
+    .comment__meta {
+      & > * {
+        opacity: .4;
+      }
+
+      & > .comment__actions {
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+.comment__table {
+  //width: 100%;
+  min-height: @comments-line-height * 2;
+  padding-right: 174px;
+  padding-left: 45px;
+  position: relative;
+  //height: 36px;
+  //display: table;
+}
+
+.comment__table-cell {
+  //width: 100%;
+  //display: table-cell;
+  word-wrap: break-word;
+  //vertical-align: top;
+  padding-top: 10px;
+}
+
+.comment__user {
+  opacity: 1 !important;
+}
+
+.comment__avatar {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  vertical-align: middle;
+  overflow: hidden;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+.comment__username {
+  opacity: .4;
+  transition: opacity .4s ease;
+
+  .comment__user:hover & {
+    opacity: .7;
+  }
+}
+
+.comment__username--bold {
+  font-weight: bold;
+}
+
+.comment__text {
+  img {
+    max-width: 100%;
+    margin: 8px 0;
+    display: block;
+  }
+}
+
+.comment__meta {
+  height: 18px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: @comment-meta-font-size;
+  line-height: @comment-meta-line-height;
+  white-space: nowrap;
+
+  > * {
+    opacity: 0;
+    transition: opacity .4s ease;
+
+    > .icon {
+      cursor: default;
+      opacity: .4;
+    }
+  }
+
+  .comment & {
+    a:hover {
+      &:extend(.comment .comment__reply:hover);
+    }
+  }
+}
+
+.comment__dot {
+  margin: 0 .5em;
+}
+
+.comment__reply {
+  cursor: pointer;
+
+  .comment &:hover {
+    opacity: .7;
+  }
+}
+
+.comment__actions {
+  position: relative;
+
+  .icon {
+    font-size: 17px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+}
+
+.comment__dropdown {
+  .make-popover();
+
+  &.state--open {
+    visibility: visible;
+    opacity: 1;
+    transition: transform .3s ease, visibility 0s ease .0s, opacity .3s ease;
+  }
+}
+
+.comment__dropdown-item {
+  font-size: @comment-meta-font-size;
+  line-height: @comment-meta-line-height;
+}
+
+// Block Comment Form
+.comment-form {
+  &:extend(.comment);
+  border-top: 10px solid transparent;
+}
+
+.comment-form__table {
+  &:extend(.comment__table);
+}
+
+.comment-form__table-cell {
+  &:extend(.comment__table-cell);
+  padding-top: 0;
+}
+
+.comment-form__user {
+  &:extend(.comment__user);
+}
+
+.comment-form__avatar {
+  &:extend(.comment__avatar);
+  /*top: 9px;*/
+}
+
+.comment-form__placeholder {
+  width: 100%;
+  padding: 11px;
+  margin-right: -100%;
+  float: left;
+  box-sizing: border-box;
+  opacity: .4;
+}
+
+.comment-form__field {
+  padding-right: 20px;
+  display: block;
+  position: relative;
+}
+
+.comment-form__field-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid @comment-textarea-border-color;
+  border-radius: 5px;
+}
+
+.comment-form__field-label {
+  padding: 8px 10px 7px;
+  position: absolute;
+  display: none;
+  line-height: 20px;
+  color: @comment-textarea-placeholder-color;
+  opacity: @comment-textarea-placeholder-opacity;
+}
+
+.comment-form__field-textarea {
+  width: 100%;
+  max-height: 200px;
+  height: 20px;
+  padding: 8px 10px 7px;
+  position: relative;
+  border: none;
+  background: none;
+  font: inherit;
+  line-height: 20px;
+  vertical-align: top;
+  z-index: @zindex-field-control;
+  transition: all .2s ease;
+
+  &::-moz-placeholder           { color: @comment-textarea-placeholder-color; opacity: @comment-textarea-placeholder-opacity; }
+  &:-ms-input-placeholder       { color: @comment-textarea-placeholder-color; opacity: @comment-textarea-placeholder-opacity; }
+  &::-webkit-input-placeholder  { color: @comment-textarea-placeholder-color; opacity: @comment-textarea-placeholder-opacity; }
+}

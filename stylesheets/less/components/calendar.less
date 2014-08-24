@@ -1,0 +1,169 @@
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 100;}
+}
+
+.calendar {
+  height: @calendar-height;
+  padding: 0 16px;
+  position: fixed;
+  bottom: @calendar-indent;
+  left: @calendar-indent;
+  background: @calendar-bg-base;
+  background-color: @calendar-bg;
+  color: #bbb;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: @zindex-calendar;
+  user-select: none;
+  border-radius: (@calendar-height / 2);
+  transition: width .3s ease-in-out;
+
+  .calendar__period-marker--current {
+    width: 7px;
+    height: 7px;
+    margin: -4px 0 0 -3px;
+    background-color: @calendar-active-marker;
+    z-index: @zindex-calendar;
+
+    &:after,
+    &:before {
+      display: block;
+    }
+  }
+
+  .calendar__period-marker--highlighted {
+    opacity: 1;
+  }
+}
+
+.calendar .text--center {
+  text-align: center;
+}
+
+.calendar--closed {
+  // Примерно ширина с двузначной датой (29)
+  // и длинным днем недели (воскресенье)
+  width: 7.5em;
+  cursor: pointer;
+}
+
+.calendar--open {
+  width: 90%;
+}
+
+.calendar__timeline-viewport--active {
+  display: block;
+  animation: fadeIn .5s;
+}
+
+.calendar__date {
+  display: block;
+  line-height: @calendar-height - 1;
+  animation: fadeIn .5s;
+}
+
+.calendar__date-day {
+  margin: 0 6px;
+  display: inline-block;
+  font-size: 50px;
+  font-family: @font-family-base-light;
+  vertical-align: middle;
+}
+
+.calendar__date-info {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 12px;
+  vertical-align: middle;
+  opacity: .69;
+}
+
+.calendar__timeline-viewport {
+  height: 100%;
+  color: @white;
+  overflow: hidden;
+}
+
+.calendar__timeline {
+  height: 100%;
+}
+
+.calendar__periods {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.calendar__period {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.calendar__period-date {
+  margin: 0 4px;
+  float: left;
+  font-size: 11px;
+  line-height: 13px;
+  opacity: .3;
+}
+
+.calendar__period-line {
+  height: 1px;
+  margin: 5px 4px 5px 36px;
+  position: relative;
+  background: #636264;
+  .font-null();
+}
+
+.calendar__period-marker {
+  width: 5px;
+  height: 5px;
+  margin: -3px 0 0 -2px;
+  position: absolute;
+  top: 50%;
+  background-color: @white;
+  border-radius: 50%;
+  opacity: .3;
+
+  &:before,
+  &:after {
+    width: 78px;
+    margin-left: -39px;
+    position: absolute;
+    display: none;
+    left: 50%;
+    font-size: 11px;
+    line-height: 12px;
+    font-family: @font-family-base;
+    color: @white;
+    text-align: center;
+    opacity: .4;
+  }
+
+  &:before {
+    content: attr(data-marker-date);
+    margin-bottom: 5px;
+    bottom: 100%;
+  }
+
+  &:after {
+    content: attr(data-marker-rows);
+    margin-top: 5px;
+    top: 100%;
+  }
+
+  &:hover {
+    width: 7px;
+    height: 7px;
+    margin: -4px 0 0 -3px;
+    background-color: #fbdc44;
+    z-index: @zindex-calendar;
+    opacity: 1;
+
+    &:after,
+    &:before {
+      display: block;
+    }
+  }
+}

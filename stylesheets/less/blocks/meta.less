@@ -1,0 +1,150 @@
+// Meta Bar
+.meta-bar {
+  white-space: nowrap;
+
+  .meta-item {
+    &:before {
+      content: "\00b7"; // Рарзделительная точка
+    }
+
+    &:first-child {
+      &:before {
+        content: "\2014"; // Тире
+      }
+    }
+
+    &:before,
+    .meta-item__common {
+      opacity: 0;
+    }
+
+    &.state--visible {
+      &:before,
+      .meta-item__common {
+        opacity: .4;
+      }
+    }
+  }
+}
+
+// Meta Item
+.meta-item {
+  white-space: nowrap;
+  font-size: @meta-font-size;
+  font-family: @font-family-base;
+
+  &,
+  &:before,
+   {
+    margin-right: .5em;
+  }
+
+  &:before {
+    &:extend(.meta-item__common);
+  }
+
+  a {
+    border-bottom: none;
+  }
+
+  .icon {
+    font-style: normal;
+    font-size: 17px;
+    vertical-align: middle;
+    user-select: none;
+  }
+
+  .spinner {
+    top: 2px;
+    vertical-align: baseline;
+  }
+}
+
+.meta-item__content {
+  position: relative;
+}
+
+.meta-item__common {
+  opacity: .4;
+  transition: opacity .4s ease, color .4s ease;
+
+  &.icon {
+    cursor: default;
+  }
+}
+
+.meta-item__link {
+  &:hover {
+    opacity: .6 !important;
+  }
+}
+
+// Meta Dropdown
+.meta-item__dropdown {
+  .make-popover();
+
+  &.state--open {
+    visibility: visible;
+    opacity: 1;
+    .transition-transform(~".3s ease, visibility 0s ease 0s, opacity .3s ease");
+  }
+}
+
+// Meta Avatar
+.meta-item__ava {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  display: inline-block;
+  vertical-align: middle;
+
+  .avatar__text {
+    font-size: 15px;
+  }
+}
+
+// Types
+.meta-item--user {
+  &:first-child {
+    &:before {
+      display: none;
+    }
+  }
+
+  .meta-item__common {
+    opacity: 1 !important;
+  }
+
+  .meta-item__link:hover {
+    opacity: .7 !important;
+  }
+}
+
+.meta-item--tags {
+  white-space: normal;
+}
+
+// Показываем мету при наведении на пост
+.post:hover {
+  .meta-item {
+    &:before,
+    .meta-item__common {
+      opacity: .4;
+    }
+  }
+
+  .image__caption {
+    .meta-item {
+      &:before,
+      .meta-item__common {
+        opacity: .8;
+      }
+
+      .meta-item__link {
+        &:hover {
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+}

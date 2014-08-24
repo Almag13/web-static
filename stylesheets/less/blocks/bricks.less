@@ -1,0 +1,221 @@
+// Styles
+.bricks-wrapper {
+  margin: 0 -4px;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+// Block Bricks
+.bricks {
+  margin: 0 auto;
+  font-family: @font-family-sans-serif;
+  overflow: visible !important;
+}
+
+.bricks__loader {
+  padding: 50px;
+  text-align: center;
+}
+
+// Brick
+.brick {
+  width: @brick-width;
+  margin: @brick-margin;
+  display: inline-block;
+  background-color: @white;
+  vertical-align: top;
+  overflow: hidden;
+  border-radius: @brick-radius;
+
+  /** Video **/
+  .video {
+    height: @brick-video-height;
+  }
+
+  .video__overlay {
+    background: @brick-video-overlay-bg;
+
+    &:before {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTAiIGhlaWdodD0iOTAiPgogICAgPGxpbmUgeDE9IjAiIHkxPSIwIiB4Mj0iOTAiIHkyPSI0NSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8bGluZSB4MT0iOTAiIHkxPSI0NSIgeDI9IjAiIHkyPSI5MCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8bGluZSB4MT0iMSIgeTE9IjAiIHgyPSIxIiB5Mj0iOTAiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiAvPgo8L3N2Zz4=);
+      background-size: 45px auto;
+      opacity: .7;
+    }
+  }
+
+  /** Blockquote **/
+  .blockquote {
+    font-size: 22px;
+    line-height: 28px;
+
+    .laquo {
+      margin-left: -.5em;
+      float: left;
+    }
+  }
+
+  .blockquote__caption {
+    margin-top: 3px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  /** Meta Elements **/
+  .meta-bar {
+    display: block;
+    font-size: 12px;
+    line-height: 30px;
+    .text-overflow();
+  }
+
+  .meta-item {
+    pointer-events: auto;
+
+    &:first-child:before {
+      display: none;
+    }
+
+    &:before,
+    .meta-item__common {
+      opacity: .4;
+    }
+  }
+
+  .meta-item__dropdown {
+    &,
+    .meta-item__content:hover & {
+      transition: none;
+    }
+  }
+
+  .meta-item--comments {
+    .meta-item__link.state--active {
+      opacity: 1;
+    }
+  }
+
+  /** Voting **/
+  .voting {
+    margin: 0;
+    position: relative;
+    float: none;
+    top: 1px;
+    right: auto;
+    left: auto;
+  }
+
+  /** Comments **/
+  .comments {
+    width: auto;
+    padding: 0;
+    margin: 20px 0 0;
+    font-size: 12px;
+  }
+
+  .comments__list {
+    margin-bottom: 0;
+  }
+
+  .comment {
+    margin-bottom: 15px;
+  }
+
+  .comment,
+  .comment-form {
+    padding-right: 0;
+  }
+
+  .comment-form {
+    margin-bottom: 0;
+  }
+
+  .comment__table-cell {
+    padding-top: 1px;
+  }
+
+  .comment__avatar {
+    top: 0;
+  }
+
+  @media screen and (max-width: 1024px) { // Делаем три столбика кирпичиков на айпаде и адаптируем картинки под новую ширину
+    width: 285px;
+    margin: 7px;
+
+    .brick__media {
+      img {
+        width: 100%;
+        height: auto;
+        margin-right: -8px;
+        margin-left: -8px;
+      }
+    }
+  }
+}
+
+.brick__media {
+  overflow: hidden;
+
+  &:first-child {
+    .border-radius-top-left(@brick-radius);
+    .border-radius-top-right(@brick-radius);
+  }
+
+  &:last-child {
+    .border-radius-bottom-left(@brick-radius);
+    .border-radius-bottom-right(@brick-radius);
+  }
+
+  & > .brick__link:hover {
+    opacity: .84;
+  }
+}
+
+.brick__body {
+  padding: @brick-padding-vertical @brick-padding-horizontal;
+}
+
+.brick__title {
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 1em;
+}
+
+.brick__text {
+  p {
+    font-size: 16px;
+    line-height: 135%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.brick__meta {
+  padding: 11px 20px 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 36%);
+  opacity: 0;
+  border-radius: 0 0 @brick-radius @brick-radius;
+  transition: opacity .3s ease;
+  pointer-events: none;
+
+  .brick:hover & {
+    opacity: 1;
+  }
+
+  .brick__media + & {
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 6%,rgba(0,0,0,0.58) 100%);
+    color: @white;
+  }
+}
+
+// Types
+.brick--quote {
+  .brick__body {
+    padding: @brick-padding-vertical (@brick-padding-horizontal + 5);
+  }
+}

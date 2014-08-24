@@ -1,0 +1,54 @@
+.confirmation {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: @confirmation-overlay-bg;
+  text-align: center;
+  z-index: @zindex-popup;
+
+  .button {
+    margin: 0 5px;
+  }
+}
+
+.confirmation__main {
+  &:extend(.grid-full all);
+}
+
+.confirmation__cell {
+  &:extend(.grid-full__middle all);
+}
+
+.confirmation__close {
+  padding: 10px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+  z-index: @zindex-popup;
+  transition: all .2s ease;
+
+  .icon {
+    width: 26px;
+    height: 26px;
+    font-size: 26px;
+    line-height: 1;
+    color: @white;
+  }
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+.confirmation__box {
+  position: relative;
+  color: @white;
+  overflow: auto;
+}
+
+.confirmation__text {
+  margin-bottom: 20px;
+}

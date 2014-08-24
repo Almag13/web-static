@@ -1,0 +1,455 @@
+// Colors
+@black: #000;
+@white: #fff;
+@yellow: #f8c700;
+@green-dark: #2d9161;
+@green: #32a16c;
+@green-light: #77b97e;
+
+@color-base: @black;
+@color-placeholder: #777;
+
+@bg-selection: #b9c3ca;
+
+// Fonts
+@fonts-path: 'fonts/';
+
+@font-family-serif: 'PT Serif', Georgia, serif;
+@font-family-sans-serif: 'PT Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+@font-family-base: 'Proxima Nova', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+@font-family-base-light: 'Proxima Nova Light', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+@font-size-base: 18px;
+
+@line-height-base: 25px;
+
+// Icons
+@icons-path: @fonts-path;
+@icons-name: 'tastyicons';
+
+/*--------------------------*/
+// Layout
+@layout-constrain-width: 712px;
+
+@page-min-width: 765px;
+
+// Indents
+@indent-base: 20px;
+
+// Z-indexes
+@zindex-page-cover: 1;
+@zindex-page-body: 1;
+@zindex-types-posts: 1;
+@zindex-inviter-fixed: 1;
+@zindex-hero: 1;
+@zindex-content-area-bg: 2;
+@zindex-page-paper-not-logged: 2;
+@zindex-field-control: 2;
+@zindex-voting: 2;
+@zindex-post-edit: 2;
+@zindex-content-area-inner: 3;
+@zindex-post-edit-active: 3;
+@zindex-screen-viewer-item: 4;
+@zindex-screen-viewer-item-active: 5;
+@zindex-screen-viewer-text: 6;
+@zindex-screen-viewer-loader: @zindex-screen-viewer-text; // 6
+@zindex-search: 10;
+@zindex-landing-page-header: 10;
+@zindex-form-field: 12;
+@zindex-post-actions: 20;
+@zindex-media-box-loader: 100;
+@zindex-logo-ribbon: 150;
+@zindex-follow-status: 150;
+@zindex-dropdown: 150;
+@zindex-popover: @zindex-dropdown; // 150
+@zindex-sew-list: @zindex-dropdown; // 150
+@zindex-media-box-form: 150;
+@zindex-media-box-form-close: 151;
+@zindex-affixed: 200; // toolbar, auth button
+@zindex-button-affixed: @zindex-affixed; // 200
+@zindex-button-back: @zindex-affixed; // 200
+@zindex-nav-types: @zindex-affixed; // 200
+@zindex-types-posts-active: @zindex-affixed; // 200
+@zindex-toolbar: @zindex-affixed; // 200
+@zindex-calendar: @zindex-affixed; // 200
+@zindex-popup: 5000;
+@zindex-shellbox: 5000;
+@zindex-guide-popup: 5000;
+@zindex-messages: @zindex-popup;
+@zindex-form-select: 5500;
+@zindex-notice: 6000;
+
+// Buttons
+@button-border-radius: 3px;
+
+@button-small-height: @button-middle-height;
+@button-middle-height: 40px;
+@button-large-height: 48px;
+
+@button-small-padding-horizontal: @button-middle-padding-horizontal;
+@button-middle-padding-horizontal: 18px;
+@button-large-padding-horizontal: 28px;
+
+@button-small-font-size: 11px;
+@button-middle-font-size: 13px;
+@button-large-font-size: @button-middle-font-size;
+
+@button-circle-size: 46px;
+
+@button-affixed-indent: @indent-base;
+
+// Avatars
+/*@avatar-styles: 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth';*/
+/*@avatar-backgrounds: #eb4656, #f37420, #ffca00, #b5c31e, #44d068, #34c8bc, #3382da, #7648de;*/
+/*@avatar-colors: @color-white, @color-white, #222, @color-white, @color-white, @color-white, @color-white, @color-white;*/
+
+// Toolbar
+@toolbar-size: 56px;
+@toolbar-indent: @indent-base;
+
+@toolbar-bg-base: #252525;
+@toolbar-bg: rgba(red(@toolbar-bg-base), green(@toolbar-bg-base), blue(@toolbar-bg-base), .72);
+
+@toolbar-dropdown-max-width: 600px;
+
+@toolbar-item-highlight-bg: #f5f5f5;
+
+// Menu
+@menu-font-size: 17px;
+@menu-line-height: 1.4;
+@menu-margin-horizontal: 12px;
+
+// Alert
+@alert-padding-vertical: 22px;
+@alert-padding-horizontal: @content-area-padding-horizontal;
+@alert-font-size: 15px;
+@alert-line-height: 1.467;
+
+@alert-color-default: #797979;
+@alert-bg-default: #ededed;
+
+// Dropdown
+@dropdown-font-size: @button-small-font-size;
+@dropdown-line-height: ceil((@dropdown-font-size * 1.36)); // ~15px
+@dropdown-border-radius: 3px;
+@dropdown-height-item: 40px;
+
+// Follow Button
+@fb-border-color: rgba(red(@white), green(@white), blue(@white), .3);
+
+@fb-hover-border-color: rgba(red(@white), green(@white), blue(@white), .6);
+
+@fb-active-bg: #36b377;
+@fb-active-hover-bg: #ed4545;
+@fb-active-click-bg: #ce3e3e;
+
+// Tabs Nav
+@tabs-nav-linear-gradient: linear-gradient(to right, rgba(51,51,51,0) 0%, rgba(51,51,51,0.93) 100%);
+@tabs-nav-gray-color: #d3d3d3;
+@tabs-nav-border-color: rgba(red(@white), green(@white), blue(@white), .2);
+
+// Persons
+@persons-popup-width: 424px;
+
+@person-hover-bg-base: #232323;
+@person-hover-bg: rgba(red(@person-hover-bg-base), green(@person-hover-bg-base), blue(@person-hover-bg-base), .9);
+@person-gray-color: #5a5a5a;
+
+/*-- Follow Button --*/
+@person-fb-border-color: rgba(red(@white), green(@white), blue(@white), .1);
+@person-fb-color: rgba(red(@white), green(@white), blue(@white), .2);
+
+// Bricks
+@brick-width: 302px;
+
+@brick-margin: 10px;
+@brick-radius: 4px;
+
+@brick-padding-vertical: 15px;
+@brick-padding-horizontal: 20px;
+
+@brick-video-height: 200px;
+@brick-video-overlay-bg-base: #3e3e3e;
+@brick-video-overlay-bg: rgba(red(@brick-video-overlay-bg-base), green(@brick-video-overlay-bg-base), blue(@brick-video-overlay-bg-base), .5);
+
+// Content Area
+@content-area-padding-vertical: 40px;
+@content-area-padding-horizontal: 68px;
+
+@content-area-border-radius: 6px;
+
+// Meta
+@meta-font-size: 12px;
+@meta-line-height: 18px;
+
+// Comments
+@comments-font-size: 14px;
+@comments-line-height: 18px;
+
+@comment-meta-font-size: @meta-font-size;
+@comment-meta-line-height: @meta-line-height;
+
+@comment-textarea-placeholder-color: #858585;
+@comment-textarea-placeholder-opacity: .5;
+
+@comment-textarea-border-color-base: @comment-textarea-placeholder-color;
+@comment-textarea-border-opacity: @comment-textarea-placeholder-opacity;
+@comment-textarea-border-color: rgba(red(@comment-textarea-border-color-base), green(@comment-textarea-border-color-base), blue(@comment-textarea-border-color-base), @comment-textarea-border-opacity);
+
+@comment-highlighted-background-color: rgba(82, 118, 151, @comment-highlighted-background-opacity);
+@comment-highlighted-background-opacity: .2;
+
+@comment-highlighted-border-color-base: @comment-textarea-placeholder-color;
+@comment-highlighted-border-opacity: .3;
+@comment-highlighted-border-color: rgba(red(@comment-highlighted-border-color-base), green(@comment-highlighted-border-color-base), blue(@comment-highlighted-border-color-base), @comment-highlighted-border-opacity);
+
+// Confirmation
+@confirmation-overlay-bg: @popup-overlay-bg;
+
+// Tasty Editor
+@tasty-editor-toolbar-width: 178px;
+@tasty-editor-toolbar-border-radius: 4px;
+@tasty-editor-toolbar-bg-base: #393c3e;
+@tasty-editor-toolbar-bg: rgba(red(@tasty-editor-toolbar-bg-base), green(@tasty-editor-toolbar-bg-base), blue(@tasty-editor-toolbar-bg-base), .9);
+
+@tasty-editor-link-input-placeholder-color: @color-placeholder;
+
+@tasty-editor-placeholder-selection-bg: #dde3e7;
+@tasty-editor-content-selection-bg: #fec900;
+
+// Search
+@search-border-radius: 2em;
+@search-indent: @indent-base;
+@search-active-max-width: 154px;
+
+// Tags
+@tag-padding-vertical: 15px;
+@tag-padding-horizontal: @tag-padding-vertical;
+
+@tag-hover-bg-base: #010101;
+@tag-hover-bg: rgba(red(@tag-hover-bg-base), green(@tag-hover-bg-base), blue(@tag-hover-bg-base), .15);
+
+// Users
+@user-padding-vertical: 10px;
+@user-padding-horizontal: 15px;
+
+@user-hover-bg-base: #010101;
+@user-hover-bg: rgba(red(@tag-hover-bg-base), green(@tag-hover-bg-base), blue(@tag-hover-bg-base), .15);
+
+@user-avatar-size: 40px;
+
+// Sew
+@sew-list-max-height: 160px;
+@sew-list-min-width: 180px;
+
+@sew-list-border-radius: 3px;
+
+@sew-list-font-size: 13px;
+@sew-list-line-height: 1.4;
+
+@sew-list-item-active-bg: #4183c4;
+@sew-list-item-active-color: @white;
+@sew-list-item-caption-color: #afafaf;
+
+// Switcher
+@switcher-width: 116px;
+@switcher-height: 40px;
+
+@switcher-bg: #282727;
+@switcher-border-radius: 3px;
+
+@switcher-btn-active-bg: #ffc70b;
+@switcher-btn-inactive-bg: #3b3b3b;
+@switcher-btn-active-color: #1e1d1d;
+@switcher-btn-inactive-color: @white;
+
+// Nav Types
+@nav-types-indent: @indent-base;
+
+// Calendar
+@calendar-height: 53px;
+@calendar-indent: @indent-base;
+@calendar-active-marker: #fbdc44;
+
+@calendar-bg-base: @black;
+@calendar-bg: rgba(red(@calendar-bg-base), green(@calendar-bg-base), blue(@calendar-bg-base), .7);
+
+// Shellbox
+@shellbox-overlay-bg: @popup-overlay-bg;
+
+// Pagination
+@pagination-border-radius: 32px;
+
+@pagination-color: #858585;
+
+// Notice
+@notice-border-radius: 5px;
+
+@notice-error-bg: #c00f19;
+@notice-success-bg: #37a048;
+
+// Video
+@video-height: 400px;
+
+// Inviter
+@inviter-width: 712px;
+@inviter-height: 466px;
+
+@inviter-box-bg: #383838;
+@inviter-footer-bg: #2d2d2d;
+
+// Media Box
+@media-box-height: 200px; // old - 400
+
+@media-box-border-color: #ededed;
+@media-box-drag-hover-color: #25ae7a;
+@media-box-bg: @white;
+
+@media-box-text-color: #a1a1a1;
+@media-box-input-placeholder-color: @color-placeholder;
+
+// Voting
+@voting-border-radius: 14px;
+
+@voting-font-size: 11px;
+@voting-line-height: 15px;
+
+// Popover
+@popover-width: 244px; // 230px;
+@popover-border-radius: 4px;
+
+@popover-bg-base: #333;
+@popover-bg: rgba(red(@popover-bg-base), green(@popover-bg-base), blue(@popover-bg-base), .93);
+
+@popover-font-size: 12px;
+@popover-line-height: ceil((@popover-font-size * 1.5)); // ~18px
+
+// Form Checkbox
+@form-checkbox-disabled-bg: #e1e1e1;
+@form-checkbox-bg: #ffc600;
+
+@form-checkbox-size: 15px;
+@form-checkbox-font-size: 14px;
+
+// Form Field
+@form-field-font-size: 16px;
+@form-field-line-height: 22px;
+
+@form-field-error-color: #f00;
+
+// Form Popup
+@form-popop-width: 495px;
+
+@form-popup-header-bg: #ececec;
+@form-popup-body-bg: @white;
+
+@form-popup-select-vkontakte-bg: #4d75a3;
+@form-popup-select-vkontakte-color: @white;
+@form-popup-select-email-bg: @white;
+@form-popup-select-email-color: #3f3f3f;
+
+// Form Select
+@form-select-height: 40px;
+@form-select-border-radius: 5px;
+
+@form-select-dropdown-bg-base: #464646;
+@form-select-dropdown-bg: rgba(red(@form-select-dropdown-bg-base), green(@form-select-dropdown-bg-base), blue(@form-select-dropdown-bg-base), .95);
+
+@form-select-font-size: 16px;
+
+// Popup
+@popup-overlay-bg-base: @black;
+@popup-overlay-bg: rgba(red(@popup-overlay-bg-base), green(@popup-overlay-bg-base), blue(@popup-overlay-bg-base), .92);
+
+@popup-header-bg: #f5f5f5;
+@popup-header-color: #616161;
+
+@popup-body-bg-base: #333;
+@popup-body-bg: rgba(red(@popup-body-bg-base), green(@popup-body-bg-base), blue(@popup-body-bg-base), .93);
+
+@popup-dropdown-bg-base: #1b1b1b;
+@popup-dropdown-bg: rgba(red(@popup-dropdown-bg-base), green(@popup-dropdown-bg-base), blue(@popup-dropdown-bg-base), .95);
+
+@popup-width: 250px;
+
+@popup-border-radius: 5px;
+
+@popup-font-size: 15px;
+@popup-line-height: 18px;
+
+// Messages
+@messages-popup-width: 340px;
+
+@messages-height: 586px;
+
+@messages-border-radius: @popup-border-radius;
+
+@messages-chooser-dropdown-bg: @popover-bg;
+
+// Design
+@design-popup-width: 250px;
+
+@design-border-radius: @popup-border-radius;
+
+@design-drag-hover-bg-base: #444;
+@design-drag-hover-bg: rgba(red(@design-drag-hover-bg-base), green(@design-drag-hover-bg-base), blue(@design-drag-hover-bg-base), .95);
+
+// Hero
+@hero-overlay-bg: #202020;
+
+@hero-cover-height: 300px;
+
+// Settings
+@settings-popup-width: 600px;
+
+@settings-bg-base: #333;
+@settings-bg: rgba(red(@settings-bg-base), green(@settings-bg-base), blue(@settings-bg-base), .97);
+
+// Follow Status
+@follow-status-size: 22px;
+
+@follow-status-color: @white;
+
+@follow-status-default-bg: #bbb;
+@follow-status-friend-bg: #38a870;
+@follow-status-ignored-bg: #f3534b;
+@follow-status-guessed-bg: #fda432;
+@follow-status-requested-bg: #fda432;
+
+// Pay
+@pay-bg: #ffca00;
+@pay-color: @black;
+
+// Filter Nav
+@filter-nav-link-color: #adadad;
+@filter-nav-link-active-color: #3a3a3a;
+
+// People
+@people-item-width: 182px;
+@people-item-margin-bottom: 37px;
+
+@people-item-color: #3a3a3a;
+
+@people-item-inner-horizontal-padding: 16px;
+
+@people-item-avatar-size: 110px;
+
+// Nav View Mode
+@nav-view-mode-font-size: 25px;
+@nav-view-mode-line-height: 1em;
+
+// Notifications
+@notifications-popup-width: 414px;
+@notifications-banner-popup-width: @notifications-popup-width;
+
+@notification-vertical-padding: 10px;
+@notification-horizontal-padding: 20px;
+
+@notification-hover-bg-base: #232323;
+@notification-hover-bg: rgba(red(@person-hover-bg-base), green(@person-hover-bg-base), blue(@person-hover-bg-base), .9);
+
+@notification-text-color: #ddd;
+
+// Badge
+@badge-font-size: 12px;
+@badge-line-height: ceil((@badge-font-size * 1.36)); // 15px

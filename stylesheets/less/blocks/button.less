@@ -1,0 +1,376 @@
+// Mixins
+.button-size(@height, @padding-horizontal, @font-size) {
+  height: @height;
+  padding-right: @padding-horizontal;
+  padding-left: @padding-horizontal;
+  font-size: @font-size;
+  line-height: @height + 1;
+}
+
+.button-style(@background) {
+  background-color: @background;
+
+  &:hover {
+    background-color: lighten(@background, 6%);
+  }
+
+  &:active {
+    background-color: darken(@background, 6%);
+  }
+}
+
+.button-outline(@color) {
+  color: @color !important;
+
+  &:before {
+    border: 1px solid;
+    opacity: .1;
+  }
+
+  &:hover {
+    &:before {
+      opacity: .3;
+    }
+  }
+
+  &:active {
+    &:before {
+      opacity: .5;
+    }
+  }
+}
+
+.button-social() {
+  .icon {
+    height: 100%;
+    margin-right: @button-middle-padding-horizontal - 4;
+    padding-right: @button-middle-padding-horizontal - 2;
+    display: inline-block;
+    border-right: 1px solid rgba(red(@white), green(@white), blue(@white), .09);
+    top: auto;
+    font-size: 16px;
+    vertical-align: top;
+
+    .button--large& {
+      margin-right: @button-large-padding-horizontal - 4;
+      padding-right: @button-large-padding-horizontal - 2;
+    }
+  }
+}
+
+.button-group-style() {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Styles
+.button {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  border: none;
+  background: none;
+  font-family: @font-family-base;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  .button-size(@button-middle-height, @button-middle-padding-horizontal, @button-middle-font-size);
+  box-sizing: border-box;
+  border-radius: @button-border-radius;
+  user-select: none;
+  transition: all .3s ease;
+
+  // Button Link
+  a& {
+    text-decoration: none !important;
+  }
+
+  // Border Button
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: @button-border-radius;
+    transition: border .3s ease, opacity .3s ease;
+  }
+
+  // Icons
+  .icon {
+    position: relative;
+    top: -1px;
+    font-size: 23px;
+    line-height: inherit;
+    vertical-align: middle;
+  }
+
+  .icon--cross {
+    font-size: 18px;
+  }
+
+  // Loader
+  .spinner {
+    top: -1px;
+  }
+}
+
+// Button Group
+.button-group {
+  .button-group-style;
+
+  > .button {
+    &:not(:first-of-type) {
+      margin-left: -1px; // Фикс для Chrome (во время анимации между кнопками появляется полоска в 1px)
+      .border-radius-top-left(0);
+      .border-radius-bottom-left(0);
+    }
+
+    &:not(:last-of-type) {
+      .border-radius-top-right(0);
+      .border-radius-bottom-right(0);
+    }
+
+    &:not(:first-of-type):not(:last-of-type) {
+      .border-radius(0);
+    }
+  }
+
+  &.state--expanded {
+    & > .button {
+      .border-radius-bottom-right(0);
+      .border-radius-bottom-left(0);
+    }
+
+    & > .dropdown-popup {
+      .border-radius-top-right(0);
+      .border-radius-top-left(0);
+    }
+  }
+}
+
+.button-group-dropdown {
+  .button-group-style;
+
+  &:not(:first-child) {
+    .button {
+      .border-radius-top-left(0);
+      .border-radius-bottom-left(0);
+    }
+  }
+
+  &:not(:last-child) {
+    .button {
+      .border-radius-top-right(0);
+      .border-radius-bottom-right(0);
+    }
+  }
+
+  &:not(:first-child):not(:last-child) {
+    .button {
+      .border-radius(0);
+    }
+  }
+}
+
+// Sizes
+.button--small {
+  .button-size(@button-small-height, @button-small-padding-horizontal, @button-small-font-size);
+}
+
+.button--large {
+  .button-size(@button-large-height, @button-large-padding-horizontal, @button-large-font-size);
+}
+
+// Types, Themes
+/*-- red --*/
+.button--red {
+  color: @white !important;
+  .button-style(#f3534b);
+}
+
+/*-- green --*/
+.button--green {
+  color: @white !important;
+  .button-style(@green);
+}
+
+.button--green-light {
+  color: @white !important;
+  .button-style(@green-light);
+}
+
+.button--green-dark {
+  color: @white !important;
+  .button-style(@green-dark);
+}
+
+/*-- blue --*/
+.button--blue {
+  color: @white !important;
+  .button-style(#4d75a3);
+}
+
+/*-- grey --*/
+.button--grey {
+  color: @white !important;
+  .button-style(#b2b2b2);
+}
+
+/*-- yellow --*/
+.button--yellow {
+  color: @black !important;
+  .button-style(@yellow);
+}
+
+/*-- outline --*/
+.button--outline {
+  .button-outline(@white);
+}
+
+.button--outline-light-white {
+  color: rgba(red(@white), green(@white), blue(@white), .2) !important;
+
+  &:before {
+    border: 1px solid rgba(red(@white), green(@white), blue(@white), .1);
+    opacity: 1;
+  }
+
+  &:hover {
+    color: @white !important;
+  }
+}
+
+// Rectangular Button
+.button--rectangle {
+  border-radius: 0;
+}
+
+// Block Button
+.button--block {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  display: block;
+  box-sizing: content-box;
+}
+
+// Fixed Button
+.button--affixed {
+  position: fixed;
+  top: @button-affixed-indent;
+  right: @button-affixed-indent;
+  z-index: @zindex-button-affixed;
+}
+
+// Social Buttons
+.button--vkontakte {
+  .button-social;
+  .button-style(#4d75a3);
+}
+
+// Icon Button
+.button--icon {
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+}
+
+// Circle Button
+.button--circle {
+  width: @button-circle-size;
+  height: @button-circle-size;
+  padding: 0;
+  background-color: @white;
+  line-height: @button-circle-size;
+  color: #b7b7b7;
+  letter-spacing: 0;
+  border-radius: 50%;
+
+  .icon {
+    margin: 2px;
+    font-size: 38px;
+  }
+
+  &:hover,
+  &.state--active {
+    background-color: @green;
+    color: @white;
+  }
+}
+
+// Approve Button
+.approve-button {
+  &:extend(.button all, .button--small all, .button--outline-light-white all);
+}
+
+// Disapprove Button
+.disapprove-button {
+  &:extend(.button all, .button--small all, .button--outline-light-white all, .button--icon all);
+}
+
+// Back Button
+.back-button {
+  padding: @indent-base;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: @white;
+  font-weight: bold;
+  font-size: 20px;
+  color: @black !important;
+  opacity: .3;
+  z-index: @zindex-button-back;
+  border-radius: 0;
+  transition: all .3s ease;
+  &:extend(.icon);
+  .ico-cross();
+}
+
+// Button Post Settings
+.post-settings-button {
+  &.button {
+    padding: 0 10px;
+  }
+
+  .icon {
+    opacity: .7;
+  }
+
+  &.button--green-dark {
+    &:hover {
+      background-color: darken(@green-dark, 5%)
+    }
+  }
+}
+
+// Auth Button
+.auth-button {
+  &:extend(.button all, .button--green all, .button--affixed);
+}
+
+// Button Show More
+.more-button {
+  &:extend(.button all, .button--small all, .button--outline all, .button--block all);
+}
+
+// Feedback Button
+.feedback-button {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: @indent-base;
+  bottom: @indent-base;
+}
+
+// Add Post Button
+.add-post-button {
+  &:extend(.button all, .button--large all, .button--green-light all, .button--block all, .button--rectangle all);
+}

@@ -1,0 +1,86 @@
+// Mixins
+.shellbox-auth-activator() {
+  position: relative;
+  top: auto;
+  left: auto;
+  opacity: 1;
+  .transform(rotateX(0deg));
+  .transition-transform(~".3s ease, opacity .3s ease");
+}
+
+// Styles
+.shellbox-content {
+  position: relative;
+  top: auto;
+  left: auto;
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.shellbox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: block !important;
+  top: 0;
+  left: 0;
+  background-color: @shellbox-overlay-bg;
+  overflow: auto;
+  z-index: @zindex-shellbox;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease .4s, opacity .4s ease 0s;
+}
+
+.shellbox__main {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.shellbox__cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+// Types
+.shellbox--auth {
+  .inviter,
+  .form-popup {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    opacity: 0;
+    .transform(translate(0, -35px));
+  }
+
+  &.is--inviter {
+    .inviter {
+      .shellbox-auth-activator();
+    }
+  }
+
+  &.is--select {
+    .form-popup--select {
+      .shellbox-auth-activator();
+    }
+  }
+
+  &.is--login {
+    .form-popup--login {
+      .shellbox-auth-activator();
+    }
+  }
+
+  &.is--reg {
+    .form-popup--reg {
+      .shellbox-auth-activator();
+    }
+  }
+
+  &.is--recovery {
+    .form-popup--recovery {
+      .shellbox-auth-activator();
+    }
+  }
+}

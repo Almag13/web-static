@@ -1,0 +1,235 @@
+.posts--edit {
+  position: relative;
+}
+
+// Block Post
+.post {
+  /*margin-bottom: 42px;*/
+  margin-bottom: 58px;
+  position: relative;
+
+  .mod-touch & {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.post__header {
+  position: relative;
+}
+
+.post__title {
+  margin-bottom: 20px;
+  font-size: 35px;
+  line-height: 38px;
+  font-weight: normal;
+
+  a {
+    opacity: 1;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &.post__link {
+      text-decoration: underline
+    }
+  }
+}
+
+// Содержимое поста
+.post__content {
+  margin-bottom: 27px;
+
+  a {
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+
+  p {
+    margin-bottom: 15px;
+
+    img {
+      width: 100%; // Для постов со старого тейсти
+    }
+  }
+
+  img {
+    // Чтобы картинки в постах не вылезали, как тут:
+    // http://taaasty.ru/@PolinochkaToy/page/5
+    width: 100%;
+
+    height: auto;
+  }
+
+  figure,
+  .image,
+  .video {
+    margin-bottom: 32px;
+  }
+
+  // Картинка в посте
+  .image {
+    margin-right: -@content-area-padding-horizontal;
+    margin-left: -@content-area-padding-horizontal;
+
+    > a {
+      border-bottom: none;
+    }
+  }
+
+  .image__caption {
+    min-height: 1.412em;
+    padding: 14px 68px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: @white;
+    .linear-gradient(~"top, rgba(0,0,0,0.23) 0%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0) 100%");
+  }
+
+  // Видео в посте
+  .video {
+    height: auto;
+    margin-right: -@content-area-padding-horizontal;
+    margin-left: -@content-area-padding-horizontal;
+  }
+
+  // Цитата в посте
+  .blockquote {
+    margin-bottom: .769em;
+    font-size: 26px;
+    line-height: 33px;
+
+    .meta-bar {
+      display: block;
+      line-height: 18px;
+    }
+  }
+
+  .blockquote__caption {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  // Коллаж
+  .collage {
+    margin: 0 -@content-area-padding-horizontal 32px;
+  }
+}
+
+// Типы постов
+.post--image {
+  &:first-child {
+    margin-top: -40px;
+
+    .image {
+      border-radius: @content-area-border-radius @content-area-border-radius 0 0;
+      overflow: hidden;
+
+      .alert + .posts &,
+      .alert-container + .posts &,
+      .flex-container + .posts & {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.post--edit {
+    margin-top: -40px;
+
+    &:first-child {
+      .image {
+        overflow: visible;
+      }
+    }
+  }
+}
+
+.post--video {
+  &:first-child {
+    margin-top: -40px;
+
+    .video {
+      border-radius: @content-area-border-radius @content-area-border-radius 0 0;
+      overflow: hidden;
+
+      .alert + .posts &,
+      .alert-container + .posts &,
+      .flex-container + .posts & {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.post--edit {
+    margin-top: -40px;
+
+    &:first-child {
+      .video {
+        overflow: visible;
+      }
+    }
+  }
+}
+
+.post--edit {
+  width: 100%;
+  min-height: 300px;
+  height: auto !important;
+  height: 300px;
+  position: relative;
+  z-index: @zindex-post-edit-active;
+  /*position: absolute; // Смотреть global-state.less 456
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease .3s, opacity .3s ease;
+  z-index: @zindex-post-edit;*/
+}
+
+// Плашка справа сверху с кнопками на странице редактора
+.post-actions {
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-align: right;
+  z-index: @zindex-post-actions;
+  opacity: 1;
+  transition: all .4s ease;
+
+  &.state--loading {
+    .post-action--button {
+      opacity: .5;
+    }
+
+    .post-action--loader {
+      display: inline-block;
+    }
+  }
+}
+
+.post-action {
+  margin-left: 16px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  .dropdown-popup {
+    .transform(none);
+  }
+}
+
+.post-action--loader {
+  display: none;
+  color: @black !important;
+}

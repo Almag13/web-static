@@ -1,0 +1,216 @@
+.hero {
+  margin: 0 auto;
+  position: relative;
+  color: @white;
+  text-align: center;
+  overflow: hidden;
+  z-index: @zindex-hero;
+  transition: height .4s ease .2s;
+
+  a {
+    color: inherit;
+  }
+
+  &:before {
+    content: "";
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.hero__overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: @hero-overlay-bg;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.hero__box {
+  width: 540px;
+  padding: 28px 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  .transition(~"padding-top .4s ease, padding-bottom .4s ease");
+  &:extend(.layout-constrain all);
+}
+
+.hero__avatar {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+  opacity: 1;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, .2);
+  transition: width .4s ease .2s, height .4s ease .2s, opacity .3s ease;
+
+  .avatar__text {
+    font-size: 40px;
+    .transition(~"margin-top .3s ease, top .3s ease, font-size .3s ease");
+  }
+}
+
+.hero__title {
+  margin-top: 5px;
+  position: relative;
+  display: inline-block;
+  font-size: 46px;
+  line-height: 1.217em;
+  letter-spacing: -1px;
+  .transition(~"font-size .4s ease .2s, opacity .6s ease");
+  .animation(~"hero-animate-close .6s 1 ease");
+
+  &[class*="js"] {
+    cursor: pointer;
+  }
+}
+
+.hero__text {
+  font-size: 16px;
+  line-height: 21px;
+  .transition(~"font-size .4s ease .2s, opacity .6s ease");
+  .animation(~"hero-animate-close .6s 1 ease");
+}
+
+.hero__mask {
+  width: 40px;
+  height: 40px;
+  margin: 0px 0px 0px -20px;
+  position: absolute;
+  left: 50%;
+  background: #f00;
+  opacity: 0;
+}
+
+.hero__gradient {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  visibility: hidden;
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+  opacity: 0;
+  .transition(~"bottom .4s ease, visibility 0s ease .4s, opacity .4s ease");
+}
+
+.hero__actions {
+  max-height: 0;
+  padding-top: 0;
+  visibility: hidden;
+  opacity: 0;
+  .transition(~"max-height .4s ease .2s, padding .4s ease .2s, visibility 0s ease .6s, opacity .3s ease");
+}
+
+.hero__stats {
+  width: 100%;
+  padding: 0 0 30px;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  visibility: hidden;
+  text-align: center;
+  opacity: 0;
+  .transition(~"bottom .4s ease, visibility 0s ease .4s, opacity .4s ease");
+
+  strong {
+    display: block;
+    font-weight: normal;
+    font-size: 34px;
+  }
+}
+
+.hero__stats-list {
+  padding: 0 30px;
+}
+
+.hero__stats-item {
+  min-width: 88px;
+  padding: 6px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.2;
+  vertical-align: top;
+  cursor: default;
+
+  &.hero__stats-item-handler {
+    cursor: pointer
+  }
+}
+
+.hero__stats-link {
+  display: block;
+  color: @white;
+
+  &.state--active {
+    color: #ddd;
+  }
+}
+
+// Types
+.hero--cover {
+  height: @hero-cover-height;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("@{images-path}hero-cover.jpg");
+
+  .hero__overlay {
+    opacity: .75;
+  }
+
+  .hero__text {
+    opacity: .6;
+  }
+}
+
+// Keyframes
+@-webkit-keyframes hero-animate-open {
+  20%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes hero-animate-open {
+  20%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes hero-animate-open {
+  20%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-animate-open {
+  20%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes hero-animate-close {
+  20%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes hero-animate-close {
+  20%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes hero-animate-close {
+  20%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-animate-close {
+  20%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}

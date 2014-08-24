@@ -1,0 +1,133 @@
+// Styles
+.types-posts {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: @white;
+  font-size: 0;
+  font-family: @font-family-base;
+  text-align: center;
+  white-space: nowrap;
+  visibility: hidden;
+  z-index: @zindex-types-posts;
+  opacity: 0;
+  user-select: none;
+  transition: visibility 0s ease .4s, opacity .4s ease;
+
+  &:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  a {
+    color: @black;
+  }
+}
+
+.types-posts__item {
+  width: 110px;
+  height: 110px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 6px;
+
+  &:before {
+    content: "";
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .icon {
+    margin-bottom: 22px;
+    display: inline-block;
+    font-size: 54px;
+    color: #6a6c71;
+    transition: color .4s ease;
+  }
+
+  a&:hover {
+    background-color: #333;
+    opacity: 1 !important;
+
+    .icon,
+    .types-posts__text {
+      color: @white;
+    }
+  }
+
+  &.state--disabled {
+    cursor: default;
+
+    .icon {
+      opacity: .5;
+    }
+
+    .types-posts__text {
+      opacity: .25;
+    }
+  }
+}
+
+.types-posts__content {
+  width: 98%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .pay {
+    margin-left: .667em;
+    position: absolute;
+    top: -.667em;
+    left: 50%;
+    z-index: 200;
+  }
+}
+
+.types-posts__text {
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: @black;
+  opacity: .5;
+  transition: color .4s ease;
+}
+
+// Media Queries
+@media (min-width: 1000px) {
+  .types-posts__item {
+    width: 160px;
+    height: 160px;
+    margin: 10px;
+
+    .icon {
+      font-size: 46px;
+    }
+  }
+
+  .types-posts__text {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .types-posts__item {
+    width: 240px;
+    height: 240px;
+
+    .icon {
+      margin-bottom: 20px;
+      font-size: 54px;
+    }
+  }
+
+  .types-posts__text {
+    font-size: 15px;
+  }
+}

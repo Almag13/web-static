@@ -1,0 +1,68 @@
+.follow-status {
+  width: @follow-status-size;
+  height: @follow-status-size;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  background-color: @follow-status-default-bg;
+  line-height: @follow-status-size;
+  color: @follow-status-color;
+  text-align: center;
+  cursor: default;
+  z-index: @zindex-follow-status;
+  opacity: .94;
+  border-radius: 50%;
+
+  .icon {
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 1;
+    vertical-align: middle;
+
+    .ico-plus;
+  }
+
+  .hero & {
+    left: 310px;
+    top: 105px;
+    right: none;
+    left: none;
+    transition-property: top, left;
+    transition-timing-function: ease;
+    transition-duration: 0.4s;
+    transition-delay: 0.2s;
+  }
+
+  &.state--friend {
+    background-color: @follow-status-friend-bg;
+
+    .icon {
+      .ico-tick;
+    }
+  }
+
+  &.state--ignored {
+    background-color: @follow-status-ignored-bg;
+
+    .icon {
+      .ico-minus;
+    }
+  }
+
+  &.state--guessed {
+    background-color: @follow-status-guessed-bg;
+
+    .icon {
+      .ico-plus;
+    }
+  }
+
+  &.state--requested {
+    background-color: @follow-status-requested-bg;
+
+    .icon {
+      .ico-plus;
+    }
+  }
+
+}
